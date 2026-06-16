@@ -1,0 +1,171 @@
+/* ── Global Reset & Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--cream);
+  color: var(--text-dark);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Page Shell ── */
+.page {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Bottom Nav ── */
+.bottom-nav {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 0.5px solid var(--border);
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0 20px;
+  z-index: 100;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 6px 14px;
+  border-radius: 14px;
+  transition: background 0.2s;
+  text-decoration: none;
+  color: var(--text-muted);
+}
+
+.nav-item.active { color: var(--sage); }
+.nav-item:hover { background: var(--sage-light); }
+.nav-item span { font-size: 18px; }
+.nav-item label { font-size: 9px; font-weight: 500; letter-spacing: 0.5px; pointer-events: none; }
+
+/* ── Cards ── */
+.card {
+  background: var(--white);
+  border-radius: 20px;
+  border: 0.5px solid var(--border);
+  padding: 20px;
+}
+
+.card-sm {
+  background: var(--white);
+  border-radius: 14px;
+  border: 0.5px solid var(--border);
+  padding: 14px 16px;
+}
+
+/* ── Buttons ── */
+.btn-primary {
+  background: var(--sage-dark);
+  color: white;
+  border: none;
+  border-radius: 14px;
+  padding: 14px 28px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  width: 100%;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(45,74,62,0.25); }
+.btn-primary:active { transform: translateY(0); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-mid);
+  border: 0.5px solid var(--border);
+  border-radius: 14px;
+  padding: 13px 28px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.2s;
+}
+.btn-ghost:hover { background: var(--sage-light); color: var(--sage-dark); }
+
+/* ── Typography helpers ── */
+.serif { font-family: 'Playfair Display', serif; }
+.serif-italic { font-family: 'Playfair Display', serif; font-style: italic; }
+.text-sage { color: var(--sage); }
+.text-coral { color: var(--coral); }
+.text-gold { color: var(--gold); }
+.text-lavender { color: var(--lavender); }
+.text-muted { color: var(--text-muted); }
+
+/* ── XP Pill ── */
+.xp-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--sage-light);
+  color: var(--sage-dark);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+/* ── Streak Badge ── */
+.streak-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--gold-light);
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+
+/* ── Input ── */
+.input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 0.5px solid var(--border);
+  border-radius: 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  background: var(--white);
+  color: var(--text-dark);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.input:focus {
+  border-color: var(--sage);
+  box-shadow: 0 0 0 3px rgba(74,124,107,0.1);
+}
+.input::placeholder { color: var(--text-muted); }
+
+/* ── Progress Ring helper ── */
+.progress-wrap { width: 80px; height: 80px; }
+
+/* ── Scroll content above nav ── */
+.scroll-content {
+  padding-bottom: 100px;
+  overflow-y: auto;
+  height: 100vh;
+}
+
+/* ── Page transitions ── */
+.page-enter { opacity: 0; transform: translateY(20px); }
+.page-exit { opacity: 0; transform: translateY(-20px); }
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
